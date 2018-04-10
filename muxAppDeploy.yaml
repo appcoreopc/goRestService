@@ -1,0 +1,20 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: muxapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: muxapp
+  template:
+    metadata:
+      labels:
+        app: muxapp
+    spec:    
+      containers:
+      - name: muxapp
+        image: kepung/go-app
+        ports:
+        - containerPort: 443
+        - containerPort: 8000
